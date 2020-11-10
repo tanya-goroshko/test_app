@@ -17,14 +17,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -46,13 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         constraints: BoxConstraints.tight(Size(width, height)),
                         child: MouseRegion(
                             onHover: (details) {
-                              {
-                                context.read<ColorCubit>().changeColorOnHover(
-                                    details.position.dx,
-                                    details.position.dy,
-                                    height,
-                                    width);
-                              }
+                              context.read<ColorCubit>().changeColorOnHover(
+                                  details.position.dx,
+                                  details.position.dy,
+                                  height,
+                                  width);
                             },
                             child: Center(
                                 child: Text('Hey there',
